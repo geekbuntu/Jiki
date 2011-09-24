@@ -16,10 +16,17 @@
 ?>
 <html>
 <head>
-	<title><?php echo $site_name; ?></title>
+	<title><?php echo $site_name, " - ", json_decode($content)->{"title"}; ?></title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-<?php echo $content; ?>
+<?php $data = json_decode($content);?>
+<div id="title">
+	<?php echo $site_name, " - ", $data->{"title"};?>
+</div>
+<div id="content">
+	<?php echo $data->{"content"};?>
+</div>
 </body>
 </html>
 <?php
